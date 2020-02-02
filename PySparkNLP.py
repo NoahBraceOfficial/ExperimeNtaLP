@@ -1,4 +1,9 @@
 from pyspark.ml import Pipeline
+### from sparknlp.base import LightPipeline
+
+
+
+
 document_assembler = DocumentAssembler()\
  .setInputCol(“text”)\
  .setOutputCol(“document”)
@@ -22,3 +27,6 @@ nlpPipeline = Pipeline(stages=[
  word_embeddings,
  ])
 pipelineModel = nlpPipeline.fit(df)
+
+
+### LightPipeline(someTrainedPipeline).annotate(someStringOrArray)
